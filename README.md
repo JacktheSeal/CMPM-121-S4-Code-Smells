@@ -1,5 +1,5 @@
 # CMPM-121-S4-Code-Smells
--# Group Members: Tyler Roth, Jack Seales, Alekzander Matthews
+Group Members: Tyler Roth, Jack Seales, Alekzander Matthews
 
 # Code Smell 1
 Duplicated Code
