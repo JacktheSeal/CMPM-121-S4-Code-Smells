@@ -77,10 +77,10 @@ Using the Extract Function so that now all the logic for gaining XP is handled i
 # Code Smell 2: Long Function
 
 ## Introduction
-Long functions often get created over the course of development through small adjustments and development pressures. They often form because developers make many small changes without thinking about where they are going, and end up shoving them all into one function. This is bad because it reduces other developer's ability to understand the code properly, as well as 
+Long functions often get created over the course of development through small adjustments and development pressures. They often form because developers make many small changes without thinking about where they are going, and end up shoving them all into one function. This is bad because it reduces other developer's ability to understand the code properly, and creates functions which have too many responsibilities, leading to even messier code in the future.
 
 ## Prevention and Refactoring
-It can be difficult to prevent long functions from occurring, especially when you have a short or rushed development cycle. However, the best way to prevent long functions is to think about your code's structure before you write anything. That way, you'll prevent unnecessary lengthening of functions, and help to maintain a cleaner, more readable codebase without the need for as much refactoring. However, when looking to refactor long functions, the best solution is almost always to find a way to use Extract Function. If the opportunity arises, things like Replace Temp with Query and Introduce Parameter Object might also help.
+It can be difficult to prevent long functions from occurring, especially when you have a short or rushed development cycle. However, the best way to prevent long functions is to think about your code's structure before you write anything. That way, you'll prevent unnecessary lengthening of functions, and help to maintain a cleaner, more readable codebase without the need for as much refactoring. However, when looking to refactor long functions, the best solution is almost always to find a way to use Extract Function. If the opportunity arises, things like *Replace Temp with Query* and *Introduce Parameter Object* might also help.
 ## Code Examples
 
 ### Example 1: JavaScript
@@ -194,7 +194,7 @@ update(time, delta) {
         //COLLISION CHECKS
     }
 ```
-This code is clearly problematic due to its length. A good rule of thumb is to keep your update function as clean and readable as possible, and this clearly does not do that. In order to clean up this code, we actually already have some comments which give us clear places to extract functions. For example, by extracting completeion, wave spawning, movement, and bullet checks, the code would look something more like this. Bear in mind not all the 
+This code is clearly problematic due to its length. A good rule of thumb is to keep your update function as clean and readable as possible, and this clearly does not do that. In order to clean up this code, we actually already have some comments which give us clear places to extract functions. For example, by extracting completion, wave spawning, movement, and bullet checks, the code would look something more like this:
 ```JavaScript
 update(time, delta) {
         let my = this.my;
@@ -248,4 +248,4 @@ func show_dialogue(lines: Array[String], npc_portrait: Texture2D, name: String, 
     processDialogue()
     hidePortrait()
 ```
-As you can see, this is much more readable.
+As you can see, this is much more readable, and allows developers to focus on parts of the function if needed. Someone only editing portrait displays now has less code to hold in their head.
